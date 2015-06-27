@@ -1,0 +1,21 @@
+@media (min-width: 992px) {
+	.nav-users {
+		position: fixed;
+	}
+}
+.remove-account-container {
+	display: inline-block;
+	position: relative;
+}
+.btn-remove-account {
+	top: 10px;
+	right: 10px;
+	position: absolute;
+}
+
+.preferences legend {
+	font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
+	font-size: inherit;
+	margin-bottom: 0;
+	color: inherit;
+}
