@@ -12,14 +12,14 @@
 				</md-input-container>
 				<md-input-container flex>
 					<label>Email</label>
-					<input ng-model="user.email" type="email" required>
+					<input ng-model="user.username" type="email" required>
 				</md-input-container>
 			</md-content>
 
 			<md-content layout-padding layout="row" layout-sm="column">
 				<md-input-container flex-gt-sm="33" flex-sm>
 					<label>NRIC</label>
-					<input ng-model="user.company">
+					<input ng-model="user.nric">
 				</md-input-container>
 				<md-input-container flex>
 					<label>Mobile No.</label>
@@ -121,9 +121,8 @@
 				</fieldset>
 			</div>
 
-			<div layout-padding layout="row">
-				<span flex="50"></span>
-				<md-button type="submit" class="md-accent md-raised">Sign Up</md-button>
+			<div layout-padding layout-align="center center" layout="row">
+				<md-button type="submit" class="md-accent md-raised">Save my Information</md-button>
 			</div>
 
 		</form>

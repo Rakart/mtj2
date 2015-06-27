@@ -6,14 +6,14 @@
 			<md-content layout-padding layout="column" flex-sm="80" flex-gt-sm="60" flex-gt-md="33" class="md-primary">
 				<md-input-container flex>
 					<label>Email</label>
-					<input name="email" ng-model="user.email" type="email" required email>
+					<input name="email" ng-model="credentials.username" type="email" required email>
 					<div ng-show="userForm.email.$dirty" ng-messages="userForm.email.$error">
 						<div ng-message="required">Please enter your email address.</div>
 					</div>
 				</md-input-container>
 				<md-input-container flex>
 					<label>Password</label>
-					<input name="password" ng-model="user.password" type="password" required>
+					<input name="password" ng-model="credentials.password" type="password" required>
 					<div ng-show="userForm.password.$dirty" ng-messages="userForm.password.$error">
 						<div ng-message="required">Please enter your password</div>
 					</div>

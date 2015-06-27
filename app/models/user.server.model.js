@@ -18,7 +18,7 @@ var validateLocalStrategyProperty = function(property) {
  * A Validation function for local strategy password
  */
 var validateLocalStrategyPassword = function(password) {
-	return (this.provider !== 'local' || (password && password.length > 6));
+	return (this.provider !== 'local' || (password && password.length > 5));
 };
 
 /**
@@ -41,13 +41,26 @@ var UserSchema = new Schema({
 		type: String,
 		trim: true,
 		default: '',
-		validate: [validateLocalStrategyProperty, 'Please fill in your email'],
 		match: [/.+\@.+\..+/, 'Please fill a valid email address']
+	},
+	displayName: {
+		type: String,
+		trim: true
+	},
+	username: {
+		type: String,
+		unique: 'Username already !!!!!',
+		trim: true
 	},
 	password: {
 		type: String,
 		default: '',
 		validate: [validateLocalStrategyPassword, 'Password should be longer']
+	},
+	nric: {
+		type: String,
+		unique: 'You may only have one account per person',
+		trim: true
 	},
 	salt: {
 		type: String
@@ -85,7 +98,7 @@ var UserSchema = new Schema({
  * Hook a pre save method to hash the password
  */
 UserSchema.pre('save', function(next) {
-	if (this.password && this.password.length > 6) {
+	if (this.password && this.password.length > 5) {
 		this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
 		this.password = this.hashPassword(this.password);
 	}
