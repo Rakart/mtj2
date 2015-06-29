@@ -41,6 +41,10 @@ angular.module('users').config(['$stateProvider',
 		state('reset', {
 			url: '/password/reset/:token',
 			templateUrl: 'modules/users/views/password/reset-password.client.view.html'
+		}).
+		state('jungle', {
+			url: '/jungle',
+			templateUrl: 'modules/users/views/jungle/jungle.client.view.html'
 		});
 	}
 ]);

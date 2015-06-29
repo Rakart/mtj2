@@ -1,8 +1,8 @@
 <div data-ng-controller="HeaderController" flex>
-	<md-toolbar layout="row" data-ng-controller="HomeController as ul" class="md-whiteframe-z2">
+	<md-toolbar layout="row" data-ng-controller="HomeController as ul" class="md-whiteframe-z1">
 		<div class="md-toolbar-tools md-toolbar-tools-bottom">
 
-			<span >My Tutor Jungle</span>
+			<span>My Tutor Jungle</span>
 
 			<span flex></span>
 			<div data-ng-hide="authentication.user">
@@ -22,6 +22,9 @@
 				</md-button>
 				<md-button ui-sref="profile" class="">
 					Profile
+				</md-button>
+				<md-button ui-sref="jungle" class="">
+					Jungle
 				</md-button>
 			</div>
 

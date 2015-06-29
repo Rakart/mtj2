@@ -62,6 +62,94 @@ var UserSchema = new Schema({
 		unique: 'You may only have one account per person',
 		trim: true
 	},
+	mobileNo: {
+		type: String,
+		trim: true,
+		default: '+65 '
+	},
+	dob: {
+		type: String,
+		trim: true
+	},
+	blockNo: {
+		type: String,
+		trim: true,
+		default: ''
+	},
+	roadName: {
+		type: String,
+		trim: true,
+		default: ''
+	},
+	unitNo: {
+		type: String,
+		trim: true,
+		default: ''
+	},
+	qualification: {
+		type: String,
+		trim: true
+	},
+	commitment: {
+		type: String,
+		trim: true
+	},
+	location: {
+		north: {
+			type: Boolean,
+			default: false
+		},
+		west: {
+			type: Boolean,
+			default: false
+		},
+		south: {
+			type: Boolean,
+			default: false
+		},
+		east: {
+			type: Boolean,
+			default: false
+		},
+		central: {
+			type: Boolean,
+			default: false
+		},
+		northeast: {
+			type: Boolean,
+			default: false
+		}
+	},
+	niche: {
+		_1: {
+			type: Boolean,
+			default: false
+		},
+		_2: {
+			type: Boolean,
+			default: false
+		},
+		_3: {
+			type: Boolean,
+			default: false
+		},
+		_4: {
+			type: Boolean,
+			default: false
+		},
+		_5: {
+			type: Boolean,
+			default: false
+		},
+		_6: {
+			type: Boolean,
+			default: false
+		}
+	},
+	experience: {
+		type: String,
+		default: ''
+	},
 	salt: {
 		type: String
 	},

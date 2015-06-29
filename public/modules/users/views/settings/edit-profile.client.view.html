@@ -34,49 +34,51 @@
 			<md-content layout-padding layout="row" layout-sm="column">
 				<md-input-container flex-gt-sm="33" flex>
 					<label>Block Number / Building Name</label>
-					<input ng-model="user.blockNo" >
+					<input ng-model="user.blockNo">
 				</md-input-container>
 				<md-input-container flex>
 					<label>Road Name</label>
-					<input ng-model="user.roadName" >
+					<input ng-model="user.roadName">
 				</md-input-container>
 				<md-input-container flex-gt-sm="20" flex>
 					<label>Unit / House No.</label>
-					<input ng-model="user.unitNo" >
+					<input ng-model="user.unitNo">
 				</md-input-container>
 			</md-content>
 
 			<md-content layout-padding layout="row" layout-sm="column">
-				<md-input-container flex-gt-sm="50" flex>
+
+				<md-input-container flex-gt-sm="33" layout="column" layout-align="start" flex>
+					<h1 class="md-title">Highest Qualification</h1>
 					<md-select ng-model="user.qualification" aria-label="Education Level" placeholder="Highest Educational Qualification">
 						<label layout-padding>Highest Educational Qualification</label>
-						<md-option value="Bachelor">
-							Bachelor
-						</md-option>
-						<md-option value="Degree">
-							Degree
-						</md-option>
-						<md-option value="Science">
-							Science
-						</md-option>
+						<md-option ng-value="qual" ng-repeat="qual in ['PhD', 'Masters', 'Degree', 'Polytechnic Diploma', 'Junior College - A levels']">{{qual}}</md-option>
 					</md-select>
 				</md-input-container>
 
-				<md-input-container flex>
+				<md-input-container flex-gt-sm="33" layout="column" layout-align="start" flex>
+					<h1 class="md-title">Commitment Period</h1>
 					<md-select ng-model="user.commitment" aria-label="Availability" placeholder="How long you wish to give tuition for?">
 						<label layout-padding>How long you wish to give tuition for?</label>
-						<md-option value="<1">
+						<md-option value="Less than 3 months">
 							Less than 3 months
 						</md-option>
-						<md-option value="3-5">
+						<md-option value="Between 3 - 5 months">
 							Between 3 - 5 months
 						</md-option>
-						<md-option value="6+">
+						<md-option value="More than 6 months">
 							More than 6 months
 						</md-option>
 					</md-select>
 				</md-input-container>
 
+				<md-input-container flex-gt-sm="33" layout="column" layout-align="start" flex>
+					<h1 class="md-title">Years of Experience</h1>
+					<md-select ng-model="user.experience" aria-label="Availability" placeholder="How long you wish to give tuition for?">
+						<label layout-padding>How many years have you been teaching tuition?</label>
+						<md-option ng-value="experience" ng-repeat="experience in ['< 1 year', '1 year', '2 years', '3 years', '4 years', '5+ years']">{{experience}}</md-option>
+					</md-select>
+				</md-input-container>
 			</md-content>
 
 			<div flex layout-padding class="preferences">
@@ -84,37 +86,136 @@
 					<legend>Preferred Locations</legend>
 					<div layout="row" layout-wrap>
 						<div flex="50">
-							<md-checkbox ng-model="user.locNorth" aria-label="North">
+							<md-checkbox ng-model="user.location.north" aria-label="North">
 								North
 							</md-checkbox>
 						</div>
 						<div flex="50">
-							<md-checkbox ng-model="user.locEast" aria-label="East">
+							<md-checkbox ng-model="user.location.east" aria-label="East">
 								East
 							</md-checkbox>
 						</div>
 					</div>
 					<div layout="row" layout-wrap>
 						<div flex="50">
-							<md-checkbox ng-model="user.locSouth" aria-label="South">
+							<md-checkbox ng-model="user.location.south" aria-label="South">
 								South
 							</md-checkbox>
 						</div>
 						<div flex="50">
-							<md-checkbox ng-model="user.locWest" aria-label="West">
+							<md-checkbox ng-model="user.location.west" aria-label="West">
 								West
 							</md-checkbox>
 						</div>
 					</div>
 					<div layout="row" layout-wrap>
 						<div flex="50">
-							<md-checkbox ng-model="user.locCentral" aria-label="Central">
+							<md-checkbox ng-model="user.location.central" aria-label="Central">
 								Central
 							</md-checkbox>
 						</div>
 						<div flex="50">
-							<md-checkbox ng-model="user.locNorthEast" aria-label="North-East">
+							<md-checkbox ng-model="user.location.northeast" aria-label="North-East">
 								North-East
+							</md-checkbox>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+			<div flex layout-padding class="preferences">
+				<fieldset class="standard" layout-padding>
+					<legend>Student Level Experience</legend>
+					<div layout="row" layout-wrap>
+						<div flex="33">
+							<md-checkbox ng-model="user.level.k1_2" aria-label="North">
+								Kindergarten 1 - 2
+							</md-checkbox>
+						</div>
+						<div flex="33">
+							<md-checkbox ng-model="user.level.p1_2" aria-label="East">
+								Lower Primary (P1 - P2)
+							</md-checkbox>
+						</div>
+						<div flex="33">
+							<md-checkbox ng-model="user.level.p3_4" aria-label="South">
+								Middle Primary (P3 - P4)
+							</md-checkbox>
+						</div>
+					</div>
+					<div layout="row" layout-wrap>
+						<div flex="33">
+							<md-checkbox ng-model="user.level.p5_6" aria-label="South">
+								Upper Primary (P5 - P6)
+							</md-checkbox>
+						</div>
+						<div flex="33">
+							<md-checkbox ng-model="user.level.s1_2" aria-label="Central">
+								Lower Secondary (S1 - S2)
+							</md-checkbox>
+						</div>
+						<div flex="33">
+							<md-checkbox ng-model="user.level.s3_5" aria-label="North-East">
+								Upper Secondary (S3 - S5)
+							</md-checkbox>
+						</div>
+					</div>
+					<div layout="row" layout-wrap>
+						<div flex="33">
+							<md-checkbox ng-model="user.level.jc" aria-label="Central">
+								Junior College
+							</md-checkbox>
+						</div>
+						<div flex="33">
+							<md-checkbox ng-model="user.level.uni" aria-label="North-East">
+								University
+							</md-checkbox>
+						</div>
+						<div flex="33">
+							<md-checkbox ng-model="user.level.adult" aria-label="North-East">
+								Adult Classes
+							</md-checkbox>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+			<div flex layout-padding class="preferences">
+				<fieldset class="standard" layout-padding>
+					<legend>Niche Experiences</legend>
+					<div layout="row" layout-wrap>
+						<div flex="50">
+							<md-checkbox ng-model="user.niche._1" aria-label="Experience1">
+								Experience 1
+							</md-checkbox>
+						</div>
+						<div flex="50">
+							<md-checkbox ng-model="user.niche._2" aria-label="Experience2">
+								Experience 2
+							</md-checkbox>
+						</div>
+					</div>
+					<div layout="row" layout-wrap>
+						<div flex="50">
+							<md-checkbox ng-model="user.niche._3" aria-label="Experience3">
+								Experience 3
+							</md-checkbox>
+						</div>
+						<div flex="50">
+							<md-checkbox ng-model="user.niche._4" aria-label="Experience4">
+								Experience 4
+							</md-checkbox>
+						</div>
+					</div>
+					<div layout="row" layout-wrap>
+						<div flex="50">
+							<md-checkbox ng-model="user.niche._5" aria-label="Experience5">
+								Experience 5
+							</md-checkbox>
+						</div>
+						<div flex="50">
+							<md-checkbox ng-model="user.niche._6" aria-label="Experience6">
+								Experience 6
 							</md-checkbox>
 						</div>
 					</div>

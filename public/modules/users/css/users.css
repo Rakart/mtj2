@@ -19,3 +19,13 @@
 	margin-bottom: 0;
 	color: inherit;
 }
+
+h1.tutor-profile-name {
+	margin-top: 0;
+}
+
+md-list-item md-icon {
+	margin: inherit;
+}
+
+
