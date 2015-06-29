@@ -1,0 +1,22 @@
+<div ng-controller="PricingController as pricing">
+    <md-card class="md-padding md-whiteframe-z4">
+        <div layout="row" class="">
+            <div flex="20">
+                <h4>Select your plan</h4>
+                <h5>Time Period</h5>
+                <h5>Rates</h5>
+                <h5>Free Trial Lesson</h5>
+                <h5>Tutor Commitment</h5>
+                <h5>Free Popular Math PSLE/'O' LEVEL Assesment Book</h5>
+            </div>
+            <div ng-repeat="price in Plans" flex>
+                <h5>{{price.name}}</h5>
+                <h3>{{price.time}}</h3>
+                <h3>{{price.rates}}</h3>
+                <h3>{{price.trial_lesson}}</h3>
+                <h3>{{price.commitment}}</h3>
+                <h3>{{price.free_book}}</h3>
+            </div>
+        </div>
+    </md-card>
+</div>

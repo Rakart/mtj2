@@ -1,22 +1,26 @@
 <div ng-controller="JungleController as jungle">
     <md-content class="md-padding" layout="row">
         <md-card flex="33" offset="33"  data-ng-repeat="user in jungle.users" ng-show='selected == $index' class="jungle-card md-whiteframe-z3">
-
             <md-toolbar layout="row" class="md-primary">
                 <div class="md-toolbar-tools md-toolbar-tools-bottom">
                     <h1 class="md-title text-center">Need a reliable tutor?</h1>
                     <span flex></span>
-                    <i class="glyphicon glyphicon-heart md-hue-2 md-primary"></i>
+                    <i class="glyphicon glyphicon-search md-hue-2 md-primary"></i>
                 </div>
             </md-toolbar>
             <img class="tutor-profile-image" src="/modules/users/img/tutor1.jpg"></img>
+            <div class="md-actions" layout="row" layout-align="end center" layout-padding>
+                <md-button ng-click="jungle.nextUser($index)" class="md-accent md-fab" aria-label="addFavourite">
+                    <i class="glyphicon glyphicon-heart"></i>
+                </md-button>
+            </div>
+
 
             <md-card-content>
                 <div class="tutor-profile">
                     <h1 class="md-title tutor-profile-name text-left">{{user.firstName + ' ' + user.lastName}}</h1>
                     <h5 class="text-muted">{{user.experience}} teaching experience</h5>
                 </div>
-
                 <md-list-item>
                     <md-icon md-svg-icon="black-book"></md-icon>
                     <div class="md-list-item-text">
@@ -24,7 +28,6 @@
                         <p class="text-muted">Highest Education Level</p>
                     </div>
                 </md-list-item>
-
                 <md-divider></md-divider>
                 <md-list-item>
                     <md-icon md-svg-icon="time"></md-icon>
@@ -34,7 +37,6 @@
                     </div>
                 </md-list-item>
                 <md-divider></md-divider>
-
                 <md-list-item>
                     <md-icon md-svg-icon="time"></md-icon>
                     <div class="md-list-item-text">
@@ -42,31 +44,7 @@
                         <p class="text-muted">Commitment Period</p>
                     </div>
                 </md-list-item>
-
-<!--
-                <div layout="column">
-                    <div layout="row" flex>
-                        <span flex="10"></span>
-                        <div layout="column">
-                            <h5>Highest Education Level</h5>
-                            <p>{{user.qualification}}</p>
-                        </div>
-                    </div>
-                    <div layout="row" flex>
-                        <span flex="10"></span>
-                        <div layout="column">
-                            <h5>Commitment Period</h5>
-                            <p>{{user.commitment}}</p>
-                        </div>
-                    </div>
-                </div>
--->
-
             </md-card-content>
-            <div class="md-actions" layout="row" layout-align="end center" layout-padding>
-                <md-button ng-click="jungle.nextUser($index)" class="md-accent md-fab">A</md-button>
-                <md-button ng-click="jungle.nextUser($index)" class="md-primary md-fab">R</md-button>
-            </div>
         </md-card>
     </md-content>
 </div>
