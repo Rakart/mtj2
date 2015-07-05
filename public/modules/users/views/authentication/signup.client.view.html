@@ -1,53 +1,55 @@
 <section class="row" data-ng-controller="AuthenticationController">
 	<div layout="column">
 		<form name="userForm" data-ng-submit="signup()">
-			<div layout="row">
-				<md-content layout-padding layout="column" flex="33" offset="33" class="md-primary">
-					<h1 class="md-display-1 text-center">Sign Up</h1>					<md-input-container flex class="md-icon-float">
-						<label>First Name</label>
-						<md-icon md-svg-icon="user" class=""></md-icon>
-						<input name="firstName" ng-model="credentials.firstName" ui-validate required>
-						<div ng-show="userForm.firstName.$dirty" ng-messages="userForm.firstName.$error">
-							<div ng-message="required">Please enter your First Name.</div>
-						</div>
-					</md-input-container>
-					<md-input-container flex class="md-icon-float">
-						<label>Last Name</label>
-						<md-icon md-svg-icon="user" class=""></md-icon>
-						<input name="lastName" ng-model="credentials.lastName" required>
-						<div ng-show="userForm.lastName.$dirty" ng-messages="userForm.lastName.$error">
-							<div ng-message="required">Please enter your Last Name.</div>
-						</div>
-					</md-input-container>
-					<md-input-container flex class="md-icon-float">
-						<label>Email</label>
-						<md-icon md-svg-icon="email" class=""></md-icon>
-						<input name="email" ng-model="credentials.username" type="email" required email>
-						<div ng-show="userForm.email.$dirty" ng-messages="userForm.email.$error">
-							<div ng-message="required">Please enter your email address.</div>
-							<div ng-message="email">Please enter a valid email address.</div>
-						</div>
-					</md-input-container>
-					<md-input-container flex class="md-icon-float">
-						<label>Password</label>
-						<md-icon md-svg-icon="lock" class=""></md-icon>
-						<input name="password" minlength="6" md-maxlength="15" ng-model="credentials.password" type="password" required>
-						<div ng-show="userForm.password.$dirty" ng-messages="userForm.password.$error">
-							<div ng-message="required">Please enter a password between 6 and 15 characters.</div>
-							<div ng-message="md-maxlength">Your password cannot exceed 15 characters.</div>
-							<div ng-message="minlength">Your password must be at least 6 characters.</div>
-						</div>
+			<div layout="row" layout-wrap>
+				<md-content layout="column" flex-gt-sm="20" flex-gt-md="33" flex-sm="10"></md-content>
+				<md-content layout-padding layout="column" flex-sm="80" flex-gt-sm="60" flex-gt-md="33" class="md-primary">
+					<div class="md-whiteframe-z3 login-form" layout-padding>
+						<h1 class="md-display-1 text-center">Sign Up</h1>
+						<md-input-container flex class="md-icon-float">
+							<label>First Name</label>
+							<md-icon md-svg-icon="user" class=""></md-icon>
+							<input name="firstName" ng-model="credentials.firstName" ui-validate required>
+							<div ng-show="userForm.firstName.$dirty" ng-messages="userForm.firstName.$error">
+								<div ng-message="required">Please enter your First Name.</div>
+							</div>
+						</md-input-container>
+						<md-input-container flex class="md-icon-float">
+							<label>Last Name</label>
+							<md-icon md-svg-icon="user" class=""></md-icon>
+							<input name="lastName" ng-model="credentials.lastName" required>
+							<div ng-show="userForm.lastName.$dirty" ng-messages="userForm.lastName.$error">
+								<div ng-message="required">Please enter your Last Name.</div>
+							</div>
+						</md-input-container>
+						<md-input-container flex class="md-icon-float">
+							<label>Email</label>
+							<md-icon md-svg-icon="email" class=""></md-icon>
+							<input name="email" ng-model="credentials.username" type="email" required email>
+							<div ng-show="userForm.email.$dirty" ng-messages="userForm.email.$error">
+								<div ng-message="required">Please enter your email address.</div>
+								<div ng-message="email">Please enter a valid email address.</div>
+							</div>
+						</md-input-container>
+						<md-input-container flex class="md-icon-float">
+							<label>Password</label>
+							<md-icon md-svg-icon="lock" class=""></md-icon>
+							<input name="password" minlength="6" md-maxlength="15" ng-model="credentials.password" type="password" required>
+							<div ng-show="userForm.password.$dirty" ng-messages="userForm.password.$error">
+								<div ng-message="required">Please enter a password between 6 and 15 characters.</div>
+								<div ng-message="md-maxlength">Your password cannot exceed 15 characters.</div>
+								<div ng-message="minlength">Your password must be at least 6 characters.</div>
+							</div>
 
-					</md-input-container>
-					<br>
-					<br>
-					<div layout-padding layout-align="center center" layout="row">
-						<md-button type="submit" class="md-accent md-raised">Sign Up</md-button>
-					</div>
-
-
-
+						</md-input-container>
+						<br>
+						<br>
+						<div layout-padding layout-align="center center" layout="row">
+							<md-button type="submit" class="md-accent md-raised">Sign Up</md-button>
+						</div>
+					</div><!-- end of sign-up card -->
 				</md-content>
+				<div layout="column" flex-gt-sm="20" flex-gt-md="33" flex-sm="10"></div>
 			</div>
 		</form>
 	</div>

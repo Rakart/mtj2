@@ -44,3 +44,13 @@ md-card h3 {
 	font-size: 20px;
 	vertical-align: middle;
 }
+
+.login-form {
+	border-radius: 5px;
+	background-color: white;
+	margin-top: 50px;
+}
+
+.login-form h1 {
+	font-weight: bold;
+}
