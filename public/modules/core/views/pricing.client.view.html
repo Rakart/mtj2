@@ -3,19 +3,47 @@
         <div layout="row" class="">
             <div flex="20">
                 <h4>Select your plan</h4>
+                <md-divider></md-divider>
+
                 <h5>Time Period</h5>
+                <md-divider></md-divider>
+
                 <h5>Rates</h5>
+                <md-divider></md-divider>
+
                 <h5>Free Trial Lesson</h5>
+                <md-divider></md-divider>
+
                 <h5>Tutor Commitment</h5>
+                <md-divider></md-divider>
+
                 <h5>Free Popular Math PSLE/'O' LEVEL Assesment Book</h5>
             </div>
-            <div ng-repeat="price in Plans" flex>
-                <h5>{{price.name}}</h5>
-                <h3>{{price.time}}</h3>
-                <h3>{{price.rates}}</h3>
-                <h3>{{price.trial_lesson}}</h3>
-                <h3>{{price.commitment}}</h3>
-                <h3>{{price.free_book}}</h3>
+            <div ng-repeat="price in Plans" class="text-center" flex>
+                <h4>{{price.name}}</h4>
+                <md-divider></md-divider>
+
+                <h5>{{price.time}}</h5>
+                <md-divider></md-divider>
+
+                <h5>
+                    <i ng-repeat="t in getTimes(price.rates) track by $index" class="glyphicon glyphicon-usd"></i>
+                </h5>
+                <md-divider></md-divider>
+
+                <h5>
+                    <i ng-class="{'glyphicon glyphicon-ok': price.trial_lesson, 'glyphicon glyphicon-remove': !price.trial_lesson}"></i>
+                </h5>
+                <md-divider></md-divider>
+
+                <h5>
+                    <i ng-class="{'glyphicon glyphicon-ok': price.commitment, 'glyphicon glyphicon-remove': !price.commitment}"></i>
+                </h5>
+                <md-divider></md-divider>
+
+                <h5>
+                    <i ng-class="{'glyphicon glyphicon-ok': price.free_book, 'glyphicon glyphicon-remove': !price.free_book}"></i>
+                </h5>
             </div>
         </div>
     </md-card>

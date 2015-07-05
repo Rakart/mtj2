@@ -1,30 +1,57 @@
 <div data-ng-controller="HeaderController" flex>
-	<md-toolbar layout="row" data-ng-controller="HomeController as ul" class="md-whiteframe-z1">
-		<div class="md-toolbar-tools md-toolbar-tools-bottom">
+	<md-toolbar layout="row" data-ng-controller="HomeController as ul" class="md-whiteframe-z1 mtj-menu">
 
-			<span>My Tutor Jungle</span>
+
+		<!-- new implementation
+		<div ng-controller="HeaderController" layout="column" style="height:500px;">
+			<section layout="row" flex>
+				<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+					<md-toolbar class="md-theme-indigo">
+						<h1 class="md-toolbar-tools">Sidenav Left</h1>
+					</md-toolbar>
+					<md-content layout-padding ng-controller="LeftCtrl">
+						<md-button ng-click="close()" class="md-primary" hide-gt-md>
+							Close Sidenav Left
+						</md-button>
+						<p hide-md show-gt-md>
+							This sidenav is locked open on your device. To go back to the default behavior,
+							narrow your display.
+						</p>
+					</md-content>
+				</md-sidenav>
+			</section>
+		</div> -->
+
+		<div class="md-toolbar-tools">
+			<i class="glyphicon glyphicon-globe"></i>
+			<span>
+				<md-button ng-click="navigate('home')">My Tutor Jungle</md-button>
+			</span> <!-- TODO: include mtj icon in menu -->
 
 			<span flex></span>
 			<div data-ng-hide="authentication.user">
-				<md-button class="md-raised" ui-sref="signup">
+				<md-button ng-click="navigate('pricing')" class="">
+					Pricing
+				</md-button>
+				<md-button class="md-raised" ng-click="navigate('signup')">
 					Sign Up
 				</md-button>
-				<md-button ui-sref="signin">
+				<md-button ng-click="navigate('signin')">
 					Login
-				</md-button>
-				<md-button ui-sref="pricing" class="">
-					Pricing
 				</md-button>
 			</div>
 			<div data-ng-show="authentication.user">
-				<md-button href="/auth/signout" class="md-raised md-accent">
-					Logout
+				<md-button ng-click="navigate('pricing')" class="">
+					Pricing
 				</md-button>
-				<md-button ui-sref="profile" class="">
+				<md-button ng-click="navigate('jungle')">
+					Tutor-Jungle
+				</md-button>
+				<md-button ng-click="navigate('profile')">
 					Profile
 				</md-button>
-				<md-button ui-sref="jungle" class="">
-					Jungle
+				<md-button ng-click="logout()" class="">
+					Logout
 				</md-button>
 			</div>
 

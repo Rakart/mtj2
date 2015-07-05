@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('SettingsController', ['$scope', '$http', '$location', 'Users', 'Authentication',
-	function($scope, $http, $location, Users, Authentication) {
+angular.module('users').controller('SettingsController', ['$scope', '$http', '$location', 'Users', 'Authentication', '$mdToast', '$animate',
+	function($scope, $http, $location, Users, Authentication, $mdToast, $animate) {
 		$scope.user = Authentication.user;
 
 		// If user is not signed in then redirect back home
@@ -38,6 +38,32 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			});
 		};
 
+
+		// Defines position of toasts on the page.
+		$scope.toastPosition = {
+			bottom: true,
+			top: false,
+			left: false,
+			right: false
+		};
+
+		// Gets toast position in required format for ShowSimpleToast()
+		$scope.getToastPosition = function() {
+			return Object.keys($scope.toastPosition)
+				.filter(function(pos) { return $scope.toastPosition[pos]; })
+				.join(' ');
+		};
+
+		// Defines Simple Toast settings.
+		$scope.showSimpleToast = function(content) {
+			$mdToast.show(
+				$mdToast.simple()
+					.content(content)
+					.position($scope.getToastPosition())
+					.hideDelay(1000)
+			);
+		};
+
 		// Update a user profile
 		$scope.updateUserProfile = function(isValid) {
 			if (isValid) {
@@ -47,8 +73,11 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 				user.$update(function(response) {
 					$scope.success = true;
 					Authentication.user = response;
+					$scope.showSimpleToast('Profile updated successfully!');
+
 				}, function(response) {
 					$scope.error = response.data.message;
+					$scope.showSimpleToast($scope.error);
 				});
 			} else {
 				$scope.submitted = true;
@@ -67,5 +96,8 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 				$scope.error = response.message;
 			});
 		};
+
+
+
 	}
 ]);

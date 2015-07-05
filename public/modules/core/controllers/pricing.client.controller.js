@@ -11,7 +11,7 @@ angular.module('core').controller('PricingController', ['$scope', 'Authenticatio
             {
                 name: 'Standard',
                 time: '< 3 months',
-                rates: '$$$',
+                rates: 3,
                 trial_lesson: false,
                 commitment: false,
                 free_book: false
@@ -19,7 +19,7 @@ angular.module('core').controller('PricingController', ['$scope', 'Authenticatio
             {
                 name: 'Superior',
                 time: '3-5 months',
-                rates: '$$',
+                rates: 2,
                 trial_lesson: true,
                 commitment: true,
                 free_book: true
@@ -27,11 +27,15 @@ angular.module('core').controller('PricingController', ['$scope', 'Authenticatio
             {
                 name: 'Superb',
                 time: '6 months +',
-                rates: '$',
+                rates: 1,
                 trial_lesson: true,
                 commitment: true,
                 free_book: true
-            },
-        ]
+            }
+        ];
+
+        $scope.getTimes = function(n){
+            return new Array(n);
+        };
     }
 ]);

@@ -68,8 +68,7 @@ var UserSchema = new Schema({
 		default: '+65 '
 	},
 	dob: {
-		type: String,
-		trim: true
+		type: Date
 	},
 	blockNo: {
 		type: String,
@@ -142,6 +141,44 @@ var UserSchema = new Schema({
 			default: false
 		},
 		_6: {
+			type: Boolean,
+			default: false
+		}
+	},
+	level: {
+		k1_2: {
+			type: Boolean,
+			default: false
+		},
+		p1_2: {
+			type: Boolean,
+			default: false
+		},
+		p3_4: {
+			type: Boolean,
+			default: false
+		},
+		p5_6: {
+			type: Boolean,
+			default: false
+		},
+		s1_2: {
+			type: Boolean,
+			default: false
+		},
+		s3_5: {
+			type: Boolean,
+			default: false
+		},
+		jc: {
+			type: Boolean,
+			default: false
+		},
+		uni: {
+			type: Boolean,
+			default: false
+		},
+		adult: {
 			type: Boolean,
 			default: false
 		}

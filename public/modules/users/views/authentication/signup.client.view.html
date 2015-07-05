@@ -3,30 +3,34 @@
 		<form name="userForm" data-ng-submit="signup()">
 			<div layout="row">
 				<md-content layout-padding layout="column" flex="33" offset="33" class="md-primary">
-					<md-input-container flex>
+					<h1 class="md-display-1 text-center">Sign Up</h1>					<md-input-container flex class="md-icon-float">
 						<label>First Name</label>
+						<md-icon md-svg-icon="user" class=""></md-icon>
 						<input name="firstName" ng-model="credentials.firstName" ui-validate required>
 						<div ng-show="userForm.firstName.$dirty" ng-messages="userForm.firstName.$error">
 							<div ng-message="required">Please enter your First Name.</div>
 						</div>
 					</md-input-container>
-					<md-input-container flex>
+					<md-input-container flex class="md-icon-float">
 						<label>Last Name</label>
+						<md-icon md-svg-icon="user" class=""></md-icon>
 						<input name="lastName" ng-model="credentials.lastName" required>
 						<div ng-show="userForm.lastName.$dirty" ng-messages="userForm.lastName.$error">
 							<div ng-message="required">Please enter your Last Name.</div>
 						</div>
 					</md-input-container>
-					<md-input-container flex>
+					<md-input-container flex class="md-icon-float">
 						<label>Email</label>
+						<md-icon md-svg-icon="email" class=""></md-icon>
 						<input name="email" ng-model="credentials.username" type="email" required email>
 						<div ng-show="userForm.email.$dirty" ng-messages="userForm.email.$error">
 							<div ng-message="required">Please enter your email address.</div>
 							<div ng-message="email">Please enter a valid email address.</div>
 						</div>
 					</md-input-container>
-					<md-input-container flex>
+					<md-input-container flex class="md-icon-float">
 						<label>Password</label>
+						<md-icon md-svg-icon="lock" class=""></md-icon>
 						<input name="password" minlength="6" md-maxlength="15" ng-model="credentials.password" type="password" required>
 						<div ng-show="userForm.password.$dirty" ng-messages="userForm.password.$error">
 							<div ng-message="required">Please enter a password between 6 and 15 characters.</div>
