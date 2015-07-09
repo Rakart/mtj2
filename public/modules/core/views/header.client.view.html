@@ -1,38 +1,15 @@
 <div data-ng-controller="HeaderController" flex>
 	<md-toolbar layout="row" data-ng-controller="HomeController as ul" class="md-whiteframe-z1 mtj-menu">
-
-
-		<!-- new implementation
-		<div ng-controller="HeaderController" layout="column" style="height:500px;">
-			<section layout="row" flex>
-				<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-					<md-toolbar class="md-theme-indigo">
-						<h1 class="md-toolbar-tools">Sidenav Left</h1>
-					</md-toolbar>
-					<md-content layout-padding ng-controller="LeftCtrl">
-						<md-button ng-click="close()" class="md-primary" hide-gt-md>
-							Close Sidenav Left
-						</md-button>
-						<p hide-md show-gt-md>
-							This sidenav is locked open on your device. To go back to the default behavior,
-							narrow your display.
-						</p>
-					</md-content>
-				</md-sidenav>
-			</section>
-		</div> -->
-
 		<div class="md-toolbar-tools">
-			<i class="glyphicon glyphicon-globe"></i>
+			<md-button class="md-icon-button" ng-click="toggleLeft()" aria-label="Settings">
+				<md-icon md-svg-icon='menu'></md-icon>
+			</md-button>
 			<span>
 				<md-button ng-click="navigate('home')">My Tutor Jungle</md-button>
 			</span> <!-- TODO: include mtj icon in menu -->
 
 			<span flex></span>
 			<div data-ng-hide="authentication.user">
-				<md-button ng-click="navigate('pricing')" class="">
-					Pricing
-				</md-button>
 				<md-button class="md-raised" ng-click="navigate('signup')">
 					Sign Up
 				</md-button>
@@ -41,23 +18,48 @@
 				</md-button>
 			</div>
 			<div data-ng-show="authentication.user">
-				<md-button ng-click="navigate('pricing')" class="">
-					Pricing
-				</md-button>
-				<md-button ng-click="navigate('jungle')">
-					Tutor-Jungle
-				</md-button>
-				<md-button ng-click="navigate('profile')">
-					Profile
-				</md-button>
 				<md-button ng-click="logout()" class="">
 					Logout
 				</md-button>
 			</div>
-
 		</div>
 	</md-toolbar>
 </div>
+
+<section layout="row" flex>
+	<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+		<md-toolbar>
+			<h1 class="md-toolbar-tools">Dashboard</h1>
+		</md-toolbar>
+		<md-content ng-controller="HeaderController" layout-fill>
+			<md-list class="">
+				<md-subheader>My Tutor Jungle</md-subheader>
+				<md-list-item ng-click="navigate('pricing')">
+					<md-icon md-svg-icon="usd"></md-icon>
+					<p>Pricing Plans</p>
+				</md-list-item>
+
+				<md-list-item ng-click="navigate('jungle')">
+					<md-icon md-svg-icon="search"></md-icon>
+					<p>Tutor Jungle</p>
+				</md-list-item>
+
+				<div ng-show="authentication.user">
+					<md-divider></md-divider>
+					<md-subheader>My Account</md-subheader>
+					<md-list-item ng-click="navigate('profile')">
+						<md-icon md-svg-icon="user"></md-icon>
+						<p>Edit Profile</p>
+					</md-list-item>
+					<md-list-item ng-click="logout()">
+						<md-icon md-svg-icon="lock"></md-icon>
+						<p>Logout</p>
+					</md-list-item>
+				</div>
+			</md-list>
+		</md-content>
+	</md-sidenav>
+</section>
 
 <!--<div class="container" data-ng-controller="HeaderController">-->
 	<!--<div class="navbar-header">-->

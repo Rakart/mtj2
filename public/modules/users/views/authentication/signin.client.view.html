@@ -10,19 +10,19 @@
 					<md-input-container flex class="md-icon-float">
 						<label>Email</label>
 						<md-icon md-svg-icon="user" class=""></md-icon>
-						<input name="email" ng-model="credentials.username" type="email" email>
-						<!--<div ng-show="userForm.email.$dirty" ng-messages="userForm.email.$error">
+						<input name="email" ng-model="credentials.username" type="email" ui-validate="email">
+						<div ng-show="userForm.email.$dirty" ng-messages="userForm.email.$error">
 							<div ng-message="required">Please enter your email address.</div>
-						</div>-->
+						</div>
 					</md-input-container>
 
 					<md-input-container flex class="md-icon-float">
 						<label>Password</label>
 						<md-icon md-svg-icon="lock" class=""></md-icon>
-						<input name="password" ng-model="credentials.password" type="password">
-						<!--<div ng-show="userForm.password.$dirty" ng-messages="userForm.password.$error">
+						<input name="password" ng-model="credentials.password" ui-validate="password" type="password">
+						<div ng-show="userForm.password.$dirty" ng-messages="userForm.password.$error">
 							<div ng-message="required">Please enter your password.</div>
-						</div>-->
+						</div>
 					</md-input-container>
 					<br>
 

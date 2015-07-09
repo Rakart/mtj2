@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('core')
-	.controller('HeaderController', [
-		'$scope',
-		'Authentication',
+	.controller('HeaderController', ['$scope', 'Authentication',
 		'Menus',
 		'$state',
 		'$http',
@@ -27,7 +25,7 @@ angular.module('core')
 		});
 
 		$scope.navigate = function(routeName){
-			$state.go(routeName);
+			$state.go(routeName);gl
 		};
 
 		$scope.logout = function() {
@@ -40,6 +38,28 @@ angular.module('core')
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
+		};
+
+
+
+		function buildToggler(navID) {
+			var debounceFn =  $mdUtil.debounce(function(){
+				$mdSidenav(navID)
+					.toggle()
+					.then(function () {
+						$log.debug('toggle ' + navID + ' is done');
+					});
+			},300);
+			return debounceFn;
+		}
+
+		$scope.toggleLeft = buildToggler('left');
+		
+		$scope.close = function() {
+			$mdSidenav('left').close()
+				.then(function () {
+					$log.debug('close LEFT is done');
+				});
 		};
 
 	}]);

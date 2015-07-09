@@ -1,11 +1,23 @@
-<section data-ng-controller="HomeController">
-	<div layout="row">
-		<div flex="10" class="md-whiteframe-z2">
-			<h4 layout-padding layout-align="center center">Menu Items Here</h4>
-		</div>
-		<div flex layout-padding>
-			Hello and welcome to My Tutor Jungle. <br>
-			This is the Home Page
+<section data-ng-controller="HeaderController">
+	<div class="home-page" layout-fill>
+		<img src="modules/core/img/brand/stutents.jpg" class="bg" alt="image you want in background"></img>
+
+		<!-- <img src="modules/core/img/brand/MTJ-Final-Draft-12.png" alt="MTJ Logo"></img> -->
+
+		<div layout="row">
+			<div flex offset="20" layout-align="center center">
+				<md-content layout="column" class="home-sign-up md-padding md-whiteframe-z3">
+					<md-input-container flex class="md-icon-float">
+						<label>Please enter your email.</label>
+						<md-icon md-svg-icon="email" class=""></md-icon>
+						<input name="email" ng-model="credentials.username" type="email" ui-validate="email">
+					</md-input-container>
+					<md-button class="home-sign-up-btn md-raised md-primary">Subscribe</md-button>
+					<p class="text-center">Already a member? <md-button ng-click="navigate('signin')">Login here</md-button></p>
+				</md-content>
+			</div>
+			<div flex="20"></div>
 		</div>
 	</div>
 </section>
+

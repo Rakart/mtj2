@@ -54,3 +54,14 @@ md-card h3 {
 .login-form h1 {
 	font-weight: bold;
 }
+
+md-list-item .md-list-item-inner > md-icon:first-child {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* fixes md-backdrop extending page height */
+md-backdrop, md-sidenav {
+	position: fixed;
+	overflow: hidden;
+}
