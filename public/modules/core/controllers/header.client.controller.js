@@ -25,7 +25,7 @@ angular.module('core')
 		});
 
 		$scope.navigate = function(routeName){
-			$state.go(routeName);gl
+			$state.go(routeName);
 		};
 
 		$scope.logout = function() {
